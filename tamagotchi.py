@@ -46,7 +46,7 @@ class Pet:
     # OPERATIONS/Actions ----> Methods
     def hi(self):
         print(self.sounds[randrange(len(self.sounds))])
-        print("My name is {} ".format(self.name) + " and right now I am" + self.mood() + ".")
+        print("My name is {} ".format(self.name) + " and right now I am " + self.mood() + ".")
         self.reduce_boredom()
 
     def bark(self):
@@ -58,6 +58,8 @@ class Pet:
     def wake(self):
         print("WOOF! My name is {}".format(self.name))
 
+    def reduce_boredom(self):
+        self.boredom = max(0, self.boredom - self.boredom_decrement)
 
 
 if __name__ == "__main__":

@@ -30,9 +30,11 @@ class Pet:
 
     def mood(self):
         if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold:
-            return "Happy"
+            return "happy"
+        elif self.hunger > self.hunger_threshold:
+            return "hungry"
         else:
-            return "Bored"
+            return "bored"
 
     # STATE
     def __str__(self):
@@ -42,9 +44,13 @@ class Pet:
         return state
 
     # OPERATIONS/Actions ----> Methods
+    def hi(self):
+        print(self.sounds[randrange(len(self.sounds))])
+        print("My name is {} ".format(self.name) + " and right now I am" + self.mood() + ".")
+        self.reduce_boredom()
 
     def bark(self):
-         print("WOOF! My name is {}".format(self.name))
+         print("WOOF!")
 
     def sleep(self):
         print("WOOF! My name is {}".format(self.name))
@@ -53,8 +59,9 @@ class Pet:
         print("WOOF! My name is {}".format(self.name))
 
 
+
 if __name__ == "__main__":
     my_pet = Pet('Nea', 8)
+    my_pet.hi()
     my_pet.bark()
-    my_pet.mood()
 

@@ -8,6 +8,7 @@ class Pet:
     hunger_decrement = 6
     boredom_threshold = 5
     hunger_threshold = 10
+    sounds = ['Wolf']
 
     #Method called upon when creating an instance of a class
     def __init__(self,name = 'Dog', age = 0):
@@ -18,6 +19,9 @@ class Pet:
         self.age = age
         self.hunger = randrange(self.hunger_threshold)
         self.boredom = randrange(self.boredom_threshold)
+        self.sounds = self.sounds[:]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
+
+
 
     def clock_tick(self):
         self.age + 0.25

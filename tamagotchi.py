@@ -8,12 +8,12 @@ class Pet:
     hunger_decrement = 6
     boredom_threshold = 5
     hunger_threshold = 10
-    sounds = ['Woof']
-    type = "mammal"
+    sounds = ['Mrrp']
+
 
     # Method called upon when creating an instance of a class
     # In this instance
-    def __init__(self,name = 'Dog', age = 0):
+    def __init__(self, type, name, age):
         # Attributes
         # We take in the argument
         # Assign it using self.attribute name
@@ -23,7 +23,7 @@ class Pet:
         self.hunger = randrange(self.hunger_threshold)
         self.boredom = randrange(self.boredom_threshold)
         self.sounds = self.sounds[:]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
-
+        self.type = type
 
 
     def clock_tick(self):
@@ -48,9 +48,6 @@ class Pet:
 
     # OPERATIONS/Actions ----> Methods
 
-    # def what_am_i(self):
-    #     print("I am a {}".format(type))
-
 
     def hi(self):
         print(self.sounds[randrange(len(self.sounds))])
@@ -58,42 +55,64 @@ class Pet:
         self.reduce_boredom()
 
     def sleep(self):
-        print("WOOF! My name is {}".format(self.name))
-
+         pass
     def wake(self):
-        print("WOOF! My name is {}".format(self.name))
-
+        pass
     def reduce_boredom(self):
         self.boredom = max(0, self.boredom - self.boredom_decrement)
 
 
 class Dog(Pet):
-    def __init__(self):
-        Pet.__init__(self)
-        print("Dog Created")
-    def bark(self):
+    sounds = ['Woof']
+
+    def __init__(self, type, name, age):
+        # Attributes
+        # We take in the argument
+        # Assign it using self.attribute name
+        print("DOG CREATED")
+        self.name = name
+        self.age = age
+        self.hunger = randrange(self.hunger_threshold)
+        self.boredom = randrange(self.boredom_threshold)
+        self.sounds = self.sounds[:]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
+        self.type = type
+
+    def speak(self):
          print(self.sounds)
     def who_am_i(self):
         print("I am a dog!")
 
 
-# class Cat:
-#     def __init__(self):
-#         Pet.__init__(self)
-#         print("Cat Created")
-#
-#     def bark(self):
-#         print(self.sounds)
-#
-#     def who_am_i(self):
-#         print("I am a dog!")
+class Cat(Pet):
+    sounds = ['Meow']
+
+    def __init__(self, type, name, age):
+        # Attributes
+        # We take in the argument
+        # Assign it using self.attribute name
+        print("CAT CREATED")
+        self.name = name
+        self.age = age
+        self.hunger = randrange(self.hunger_threshold)
+        self.boredom = randrange(self.boredom_threshold)
+        self.sounds = self.sounds[:]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
+        self.type = type
+
+    def speak(self):
+        print(self.sounds)
+
+    def who_am_i(self):
+        print("I am a cat!")
 
 
 if __name__ == "__main__":
-    my_pet = Dog()
-    # my_pet = Cat()
+    nea = Dog(name = "Nea", type= "dog", age=8)
+    roxie = Cat(name = "Nea", type= "dog", age=8).reduce_boredom()
+    # pig = Pig()
 
-    my_pet = Dog()
-    my_pet.bark()
-    my_pet.hi()
+    nea.speak()
+    nea.reduce_boredom()
+    # pet = Pet(name = "Nea", type= "dog", age=8)
+    # dog.hi()
+    # roxie.speak()
 

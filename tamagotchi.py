@@ -40,17 +40,34 @@ class Pet:
     # OPERATIONS/Actions ----> Methods
 
     def bark(self):
-         print("WOOF! My name is {}".format(self.name))
+        try:
+            print("WOOF! My name is {}".format(self.name))
+        except:
+            print("There was an error")
+        else:
+            pass
 
     def sleep(self):
-        print("WOOF! My name is {}".format(self.name))
-
+        try:
+            print("{} is sleeping...".format(self.name))
+        except:
+            print("There was an error")
+        else:
+            pass
     def wake(self):
-        print("WOOF! My name is {}".format(self.name))
+        try:
+            print("{} is awake now...".format(self.name))
+        except:
+            print("There was an error.")
+        else:
+            pass
 
 
 if __name__ == "__main__":
     my_pet = Pet('Nea', 8)
     my_pet.bark()
     my_pet.mood()
+    my_pet.wake()
+    # my_pet.walk()
+
 

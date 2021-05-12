@@ -36,7 +36,6 @@ class Pet:
                       :]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
 
 
-
     def clock_tick(self):
         self.age + 0.25
         self.hunger += 1
@@ -76,20 +75,6 @@ class Pet:
 class Dog(Pet):
     sounds = ['Woof']
 
-    def __init__(self, type, name, age):
-        # Attributes
-        # We take in the argument
-        # Assign it using self.attribute name
-        print("DOG CREATED")
-        self.name = name
-        self.breed = type
-        self.age = age
-        self.hunger = randrange(self.hunger_threshold)
-        self.boredom = randrange(self.boredom_threshold)
-        self.sounds = self.sounds[
-                      :]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
-        self.type = type
-
     def speak(self):
         print(self.sounds)
 
@@ -99,20 +84,6 @@ class Dog(Pet):
 
 class Cat(Pet):
     sounds = ['Meow']
-
-    def __init__(self, type, name, age):
-        # Attributes
-        # We take in the argument
-        # Assign it using self.attribute name
-        print("CAT CREATED")
-        self.name = name
-        self.breed = type
-        self.age = age
-        self.hunger = randrange(self.hunger_threshold)
-        self.boredom = randrange(self.boredom_threshold)
-        self.sounds = self.sounds[
-                      :]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
-        self.type = type
 
     def speak(self):
         print(self.sounds)

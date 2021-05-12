@@ -2,6 +2,11 @@
 from collections import namedtuple
 from random import randrange
 
+
+class Dog:
+    pass
+
+
 class Pet:
     # Class object attribute
     # Same for any instance of a class
@@ -15,8 +20,8 @@ class Pet:
     # Cat = namedtuple('Cat', ['age', 'breed', 'name'])
     # Dog = namedtuple('Dog', ['age', 'breed', 'name'])
 
-    #Method called upon when creating an instance of a class
-    def __init__(self,name, breed, age):
+    # Method called upon when creating an instance of a class
+    def __init__(self, name, type, age):
         # Attributes
         # We take in the argument
         # Assign it using self.attribute name
@@ -27,17 +32,10 @@ class Pet:
         print("PET CREATED")
         self.hunger = randrange(self.hunger_threshold)
         self.boredom = randrange(self.boredom_threshold)
-        self.sounds = self.sounds[:]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
+        self.sounds = self.sounds[
+                      :]  # copy the class attribute, so that when we make changes to it, we won't affect the other Pets in the class
 
-    """--------------------------------------------------------------------------------------------------------------------------------"""
-    # Frog = namedtuple('Frog', ['age', 'type', 'name'])
-    # Cat = namedtuple('Cat', ['age', 'breed', 'name'])
-    # Dog = namedtuple('Dog', ['age', 'breed', 'name'])
 
-    # self.Frog = Frog
-    # self.Cat = Cat
-    # self.Dog = Dog
-    """--------------------------------------------------------------------------------------------------------------------------------"""
 
     def clock_tick(self):
         self.age + 0.25
@@ -84,7 +82,7 @@ class Dog(Pet):
         # Assign it using self.attribute name
         print("DOG CREATED")
         self.name = name
-        self.breed= type
+        self.breed = type
         self.age = age
         self.hunger = randrange(self.hunger_threshold)
         self.boredom = randrange(self.boredom_threshold)
@@ -97,6 +95,7 @@ class Dog(Pet):
 
     def who_am_i(self):
         print("I am a dog!")
+
 
 class Cat(Pet):
     sounds = ['Meow']
@@ -121,13 +120,13 @@ class Cat(Pet):
     def who_am_i(self):
         print("I am a cat!")
 
+
 if __name__ == "__main__":
     nea = Dog(name="Nea", type="dog", age=8)
-    roxie = Cat(name="Nea", type="dog", age=8).reduce_boredom()
+    roxie = Cat(name="Roxie", type="dog", age=8)
     # pig = Pig()
-    print(nea.name)
-    nea.speak()
-    nea.reduce_boredom()
+    roxie.speak()
+    # nea.reduce_boredom()
     # pet = Pet(name = "Nea", type= "dog", age=8)
     # dog.hi()
-        # roxie.speak()
+    # roxie.speak()
